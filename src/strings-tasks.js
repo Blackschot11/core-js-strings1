@@ -6,7 +6,7 @@
  ******************************************************************************************* */
 
 /**
- * Returns the length of the given string.
+ * Возвращает длину заданной строки.
  *
  * @param {string} value - The input string to calculate the length of.
  * @return {number} - The length of the string.
@@ -19,12 +19,14 @@
  *   getStringLength(null) => 0
  *   getStringLength(undefined) => 0
  */
-function getStringLength(/* value */) {
-  throw new Error('Not implemented');
+function getStringLength(value) {
+  if (typeof value !== 'string') {
+    return 0;
+  }
 }
 
 /**
- * Returns true if the value is a string, otherwise returns false.
+ * Возвращает true, если значение является строкой, иначе false.
  *
  * @param {string} value - The value to check if it's a string.
  * @return {boolean} - True if the value is a string, false otherwise.
@@ -37,12 +39,13 @@ function getStringLength(/* value */) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString( value ) {
+  if (typeof value === 'string' || value instanceof string)
+  return true
 }
 
 /**
- * Returns the result of concatenation of two strings.
+ * Возвращает результат объединения двух строк.
  *
  * @param {string} value1 - The first string to concatenate.
  * @param {string} value2 - The second string to concatenate.
@@ -53,12 +56,12 @@ function isString(/* value */) {
  *   concatenateStrings('aa', '') => 'aa'.
  *   concatenateStrings('', 'bb') => 'bb'
  */
-function concatenateStrings(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function concatenateStrings( value1, value2 ) {
+  return value1 + value2;
 }
 
 /**
- * Returns the first character of the given string.
+ *  Возвращает первый символ строки.
  *
  * @param {string} value - The input string to extract the first character from.
  * @return {string} - The first character of the string.
@@ -68,12 +71,12 @@ function concatenateStrings(/* value1, value2 */) {
  *   getFirstChar('cat') => 'c'
  *   getFirstChar('') => ''
  */
-function getFirstChar(/* value */) {
-  throw new Error('Not implemented');
+function getFirstChar(value) {
+  return value[0]
 }
 
 /**
- * Removes leading and trailing whitespace characters from the string.
+ * Удаляет пробелы в начале и в конце строки.
  *
  * @param {string} value - The input string to remove leading and trailing whitespaces from.
  * @return {string} - The string with leading and trailing whitespaces removed.
@@ -83,12 +86,12 @@ function getFirstChar(/* value */) {
  *   removeLeadingAndTrailingWhitespaces('cat ') => 'cat'
  *   removeLeadingAndTrailingWhitespaces('\t\t\tHello, World! ') => 'Hello, World!'
  */
-function removeLeadingAndTrailingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeLeadingAndTrailingWhitespaces(value) {
+  return value.trim();
 }
 
 /**
- * Removes only leading whitespace characters from the string.
+ * Удаляет только пробелы в начале строки
  *
  * @param {string} value - The input string to remove leading whitespaces from.
  * @return {string} - The string with leading whitespaces removed.
@@ -98,12 +101,12 @@ function removeLeadingAndTrailingWhitespaces(/* value */) {
  *   removeLeadingWhitespaces('cat ') => 'cat '
  *   removeLeadingWhitespaces('\t\t\tHello, World! ') => 'Hello, World! '
  */
-function removeLeadingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeLeadingWhitespaces(value) {
+  return value.trimStart();
 }
 
 /**
- * Removes only trailing whitespace characters from the string.
+ * Удаляет только пробелы в конце строки..
  *
  * @param {string} value - The input string to remove trailing whitespaces from.
  * @return {string} - The string with trailing whitespaces removed.
@@ -113,12 +116,12 @@ function removeLeadingWhitespaces(/* value */) {
  *   removeTrailingWhitespaces('cat ') => 'cat'
  *   removeTrailingWhitespaces('\t\t\tHello, World! ') => '\t\t\tHello, World!'
  */
-function removeTrailingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeTrailingWhitespaces(value) {
+  return value.trimEnd();
 }
 
 /**
- * Returns a string that is repeated the specified number of times.
+ * Повторяет строку указанное количество раз.
  *
  * @param {string} str - The string to repeat.
  * @param {number} times - The number of times to repeat the string.
@@ -130,12 +133,15 @@ function removeTrailingWhitespaces(/* value */) {
  *   repeatString('', 3) => ''
  *   repeatString('abc', -2) => ''
  */
-function repeatString(/* str, times */) {
-  throw new Error('Not implemented');
+function repeatString(str, times) {
+  if (times <= 0) {
+    return '';
+  }
+  return str.repeat(times);
 }
 
 /**
- * Remove the first occurrence of a substring from a string.
+ * Удалите первое вхождение подстроки из строки.
  *
  * @param {string} str - The input string.
  * @param {string} value - The substring to remove from the string.
@@ -162,12 +168,12 @@ function removeFirstOccurrences(/* str, value */) {
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeLastOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeLastOccurrences(str, value) {
+  // не понимаю как это реализовать правильно 
 }
 
 /**
- * Calculate the sum of character codes of the given string.
+ * Вычислите сумму кодов символов заданной строки.
  *
  * @param {string} str - The input string.
  * @return {number} - The sum of character codes of the string.
@@ -178,12 +184,12 @@ function removeLastOccurrences(/* str, value */) {
  *   sumOfCodes('') => 0
  *   sumOfCodes() => 0
  */
-function sumOfCodes(/* str */) {
-  throw new Error('Not implemented');
+function sumOfCodes(str) {
+  // не понимаю как это реализовать правильно 
 }
 
 /**
- * Checks if a string starts with a specific substring.
+ * Проверяет, начинается ли строка с определенной подстроки.
  *
  * @param {string} str - The input string.
  * @param {string} substr - The substring to check.
@@ -193,8 +199,12 @@ function sumOfCodes(/* str */) {
  *   startsWith('Hello World', 'World') => false
  *   startsWith('Hello World', 'Hello') => true
  */
-function startsWith(/* str, substr */) {
-  throw new Error('Not implemented');
+function startsWith(str, substr ) {
+  if (str.startsWith(substr) === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 /**
@@ -208,8 +218,12 @@ function startsWith(/* str, substr */) {
  *   endsWith('Hello World', 'World') => true
  *   endsWith('Hello World', 'Hello') => false
  */
-function endsWith(/* str, substr */) {
-  throw new Error('Not implemented');
+function endsWith(str, substr) {
+  if (str.endsWith(substr) === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 /**
@@ -225,8 +239,10 @@ function endsWith(/* str, substr */) {
  *   formatTime(0, 45) => "00:45"
  *   formatTime(0, 0) => "00:00"
  */
-function formatTime(/* minutes, seconds */) {
-  throw new Error('Not implemented');
+function formatTime(minutes, seconds) {
+  const min = String(minutes).padStart(2, '0');
+  const second = String(seconds).padStart(2, '0');
+  return `${min}:${second}`;
 }
 
 /**
